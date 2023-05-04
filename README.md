@@ -25,6 +25,7 @@ Anime explorer, using data from AniList
 
 - React
 - Vite
+- Tailwind CSS
 
 ---
 
