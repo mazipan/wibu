@@ -17,10 +17,15 @@ import ImageLoader from '~/components/ImageLoader';
 import BreadcrumbList from '~/components/BreadcrumbList';
 import BookmarkButton from '~/components/BookmarkButton';
 import GetMediaDetail from '~/queries/MediaDetailQuery.graphql';
+import { Anime } from '~/types/Anime';
+
+interface DataMediaDetailResponse {
+  media: Anime;
+}
 
 export default function DetailPage() {
   const { id } = useParams();
-  const [{ data, fetching, error }] = useQuery({
+  const [{ data, fetching, error }] = useQuery<DataMediaDetailResponse>({
     query: GetMediaDetail,
     variables: { id },
   });
