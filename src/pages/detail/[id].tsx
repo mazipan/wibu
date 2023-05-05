@@ -13,15 +13,15 @@ import { IconThumbUp } from '@tabler/icons-react';
 
 import PageLoader from '~/components/PageLoader';
 import ErrorBox from '~/components/ErrorBox';
-import MediaDetailQuery from '~/queries/MediaDetailQuery';
 import ImageLoader from '~/components/ImageLoader';
 import BreadcrumbList from '~/components/BreadcrumbList';
 import BookmarkButton from '~/components/BookmarkButton';
+import GetMediaDetail from '~/queries/MediaDetailQuery.graphql';
 
 export default function DetailPage() {
   const { id } = useParams();
   const [{ data, fetching, error }] = useQuery({
-    query: MediaDetailQuery,
+    query: GetMediaDetail,
     variables: { id },
   });
 

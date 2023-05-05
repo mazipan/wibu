@@ -1,14 +1,12 @@
 import localForage from 'localforage';
 
+import { STORAGE_DB, STORAGE_KEYS } from './constants';
+
 import { Anime } from '~/types/Anime';
 
-const STORAGE_KEYS = {
-  BOOKMARK: '__b',
-};
-
 localForage.config({
-  driver: localForage.LOCALSTORAGE,
-  name: 'wibu',
+  driver: localForage.INDEXEDDB,
+  name: STORAGE_DB.MAIN_DB,
   version: 1.0,
 });
 

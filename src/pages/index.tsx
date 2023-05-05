@@ -5,11 +5,16 @@ import type { Anime } from '~/types/Anime';
 import PageLoader from '~/components/PageLoader';
 import ErrorBox from '~/components/ErrorBox';
 import AnimeItem from '~/components/AnimeItem';
-import PopularPageableQuery from '~/queries/PopularPageableQuery';
+import GetPopularAnimePageable from '~/queries/PopularPageableQuery.graphql';
+import { PAGINATION } from '~/helpers/constants';
 
 export default function HomePage() {
   const [{ data, fetching, error }] = useQuery({
-    query: PopularPageableQuery,
+    query: GetPopularAnimePageable,
+    variables: {
+      page: PAGINATION.INITAL_PAGE,
+      perPage: PAGINATION.SIZE,
+    },
   });
 
   if (fetching) return <PageLoader />;
