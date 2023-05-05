@@ -1,5 +1,5 @@
 import { Button, Stack, Text, Title } from '@mantine/core';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import type { Anime } from '~/types/Anime';
 import AnimeItem from '~/components/AnimeItem';
@@ -11,7 +11,6 @@ export default function BookmarkPage() {
 
   async function fetchBookmarks() {
     const foundInStorage: Anime[] | null = await getBookmarks();
-    console.log({ foundInStorage });
     if (foundInStorage) {
       setBookmarks(foundInStorage);
     }

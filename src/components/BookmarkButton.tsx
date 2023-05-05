@@ -1,4 +1,4 @@
-import { Badge, Button, Group, Text } from '@mantine/core';
+import { Badge, Button, Group } from '@mantine/core';
 import { IconBookmarkPlus, IconBookmarkMinus } from '@tabler/icons-react';
 import { notifications } from '@mantine/notifications';
 import { useCallback, useEffect, useState } from 'react';
@@ -12,7 +12,6 @@ export default function BookmarkButton({ anime }: { anime: Anime }) {
   const bookmarkChecker = useCallback(
     async function bookmarkChecker() {
       const found = await isExistInBookmark(anime.id);
-      console.log(found);
       setIsExist(found);
     },
     [anime.id],

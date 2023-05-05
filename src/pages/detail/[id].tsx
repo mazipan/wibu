@@ -28,8 +28,6 @@ export default function DetailPage() {
   if (fetching) return <PageLoader />;
   if (error) return <ErrorBox message={error.message} />;
 
-  console.debug('Detail:::', data);
-
   return (
     <Stack>
       {data && data.media ? (

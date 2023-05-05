@@ -15,7 +15,6 @@ localForage.config({
 export async function getFromStorage<Type>(key: string): Promise<Type | null> {
   try {
     const result = await localForage.getItem<Type>(key);
-    console.debug(`Found data with the key ${key}`, result);
     return result;
   } catch (error) {
     console.debug(`Failed to get storage ${key}`, error);
