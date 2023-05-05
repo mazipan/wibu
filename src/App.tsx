@@ -1,11 +1,10 @@
-import {
-  RouterProvider,
-} from "react-router-dom";
+import { RouterProvider } from 'react-router-dom';
 import { Provider } from 'urql';
-import client from './graphqlClient';
-import router from "./router";
 import { MantineProvider } from '@mantine/core';
-import theme from "./theme";
+
+import client from './graphqlClient';
+import router from './router';
+import theme from './theme';
 
 function App() {
   return (
@@ -14,7 +13,7 @@ function App() {
         <RouterProvider router={router} />
       </MantineProvider>
     </Provider>
-  )
+  );
 }
 
-export default App
+export default App;
