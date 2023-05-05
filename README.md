@@ -21,12 +21,20 @@ Anime explorer, using data from AniList
 
 `pnpm run dev`
 
-### Tech Stacks
+## Tech Stacks
 
-- React
-- Vite
-- Tailwind CSS
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [Mantine](https://mantine.dev/)
+- [urql](https://formidable.com/open-source/urql/)
+- [Tabler Icon](https://tabler-icons.io/)
+
+## Read more
+
+- [Create Vite Project for React](https://vitejs.dev/guide/)
+- [Install Mantine in Vite Project](https://mantine.dev/guides/vite/)
+- [Install urql for React](https://formidable.com/open-source/urql/docs/basics/react-preact/)
 
 ---
 
-By @mazipan
+© 2023, By @mazipan
