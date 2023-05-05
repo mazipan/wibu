@@ -1,5 +1,5 @@
 import { useQuery } from 'urql';
-import { Box, Loader, Stack } from '@mantine/core';
+import { Loader, Stack } from '@mantine/core';
 import { useCallback, useEffect, useRef } from 'react';
 import { useIntersectionObserver } from 'usehooks-ts';
 
