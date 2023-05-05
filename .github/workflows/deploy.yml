@@ -15,6 +15,7 @@ jobs:
       - name: Get PR Number
         run: |
           echo "::debug::PR Number = #${{github.event.number}}"
+          echo "::debug::GH Ref = #${GITHUB_REF}"
 
       # - name: Checkout
       #   uses: actions/checkout@v3
