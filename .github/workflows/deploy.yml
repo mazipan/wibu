@@ -76,7 +76,7 @@ jobs:
         if: (github.ref != 'refs/heads/main' && github.event.pull_request.number != '')
         uses: thollander/actions-comment-pull-request@v2
         with:
-          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ secrets.PAT }}
           message: |
             🚀 Your domain available in https://preview-wibu-${{ github.event.pull_request.number }}.surge.sh
           pr_number: ${{ github.event.pull_request.number }}
