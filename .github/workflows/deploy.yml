@@ -15,10 +15,14 @@ jobs:
       - name: Debug vars
         id: init
         run: |
-          echo "IS_MAIN=${{github.ref}}==refs/heads/master" >> $GITHUB_OUTPUT
+          echo "IS_MAIN=(${{github.ref}}==refs/heads/master)" >> $GITHUB_OUTPUT
           echo "::debug::Ref => ${{github.ref}}"
           echo "::debug::PR => ${{github.event.pull_request.number}}"
-          echo "::debug::Is Main => ${{github.ref}}==refs/heads/master"
+          echo "::debug::Is Main => (${{github.ref}}==refs/heads/master)"
+
+      - name: Check output
+        run: |
+          echo "::debug::Is Main => ${{ steps.init.outputs.IS_MAIN }}"
 
       - name: Checkout
         uses: actions/checkout@v3
