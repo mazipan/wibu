@@ -2,6 +2,13 @@
 
 query GetPopularAnimePageable($page: Int, $perPage: Int) {
   popular: Page(page: $page, perPage: $perPage) {
+    pageInfo {
+      total
+      currentPage
+      lastPage
+      hasNextPage
+      perPage
+    }
     media(sort: POPULARITY_DESC, type: ANIME, isAdult: false) {
       ...media
     }

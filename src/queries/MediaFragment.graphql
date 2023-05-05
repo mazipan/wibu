@@ -12,16 +12,6 @@ fragment media on Media {
     color
     medium
   }
-  startDate {
-    year
-    month
-    day
-  }
-  endDate {
-    year
-    month
-    day
-  }
   bannerImage
   description
   type
