@@ -12,7 +12,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Debug vars
+      - name: Init Vars
         id: init
         run: |
           echo "Ref => ${{github.ref}}"
@@ -23,10 +23,6 @@ jobs:
           else
               echo "IS_MAIN=false" >> $GITHUB_OUTPUT
           fi
-
-      - name: Check output
-        run: |
-          echo "Is Main => ${{ steps.init.outputs.IS_MAIN }}"
 
       - name: Checkout
         uses: actions/checkout@v3
@@ -63,7 +59,7 @@ jobs:
         run: pnpm run build
 
       - name: Deploy production
-        if: github.ref == 'refs/heads/master'
+        if: steps.init.outputs.IS_MAIN == 'true'
         uses: dswistowski/surge-sh-action@v1
         with:
           domain: 'wibu.surge.sh'
@@ -72,7 +68,7 @@ jobs:
           token: ${{ secrets.SURGE_TOKEN }}
 
       - name: Deploy preview domain
-        if: (github.ref != 'refs/heads/master' && github.event.pull_request.number != '')
+        if: steps.init.outputs.IS_MAIN == 'false'
         uses: dswistowski/surge-sh-action@v1
         with:
           domain: 'preview-wibu-${{ github.event.pull_request.number }}.surge.sh'
@@ -81,15 +77,15 @@ jobs:
           token: ${{ secrets.SURGE_TOKEN }}
 
       - name: Deployment Production Summary
-        if: github.ref == 'refs/heads/master'
+        if: steps.init.outputs.IS_MAIN == 'true'
         run: echo '🚀 Your domain available in https://wibu.surge.sh' >> $GITHUB_STEP_SUMMARY
 
       - name: Deployment Preview Summary
-        if: (github.ref != 'refs/heads/master' && github.event.pull_request.number != '')
+        if: steps.init.outputs.IS_MAIN == 'false'
         run: echo '🚀 Your domain available in https://preview-wibu-${{ github.event.pull_request.number }}.surge.sh' >> $GITHUB_STEP_SUMMARY
 
       - name: Deployment Preview Comment
-        if: (github.ref != 'refs/heads/master' && github.event.pull_request.number != '')
+        if: steps.init.outputs.IS_MAIN == 'false'
         uses: thollander/actions-comment-pull-request@v2
         with:
           GITHUB_TOKEN: ${{ secrets.PAT }}

@@ -4,7 +4,7 @@ Anime explorer, using data from AniList
 
 ## Live
 
-- TBA
+- [wibu.surge.sh](https://wibu.surge.sh/)
 
 ## Development
 
