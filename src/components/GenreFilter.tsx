@@ -1,4 +1,4 @@
-import { Chip, Group, Loader, Skeleton, Stack } from '@mantine/core';
+import { Chip, Group, Skeleton, Stack } from '@mantine/core';
 import { useQuery } from 'urql';
 import { useState } from 'react';
 
