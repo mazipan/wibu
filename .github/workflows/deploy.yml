@@ -12,14 +12,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Get PR Number
-        run: |
-          echo "::debug::Event Type = #${{ github.event.type }}"
-          echo "::debug::PR Number = #${{ github.event.pull_request.number }}"
-          echo "::debug::GH Ref = #${{ github.ref }}"
-          echo "::debug::GH Ref Name = #${{ github.ref_name }}"
-          echo "::debug::GH Ref Type = #${{ github.ref_type }}"
-
       - name: Checkout
         uses: actions/checkout@v3
 
@@ -64,7 +56,7 @@ jobs:
           token: ${{ secrets.SURGE_TOKEN }}
 
       - name: Deploy preview domain
-        if: github.ref != "refs/heads/main" && github.event.pull_request.number != ""
+        if: (github.ref != 'refs/heads/main' && github.event.pull_request.number != '')
         uses: dswistowski/surge-sh-action@v1
         with:
           domain: 'preview-wibu-${{ github.event.pull_request.number }}.surge.sh'
