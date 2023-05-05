@@ -62,7 +62,7 @@ jobs:
         if: steps.init.outputs.IS_MAIN == 'true'
         uses: dswistowski/surge-sh-action@v1
         with:
-          domain: 'wibu.surge.sh'
+          domain: 'prod-wibu.surge.sh'
           project: 'dist'
           login: ${{ secrets.SURGE_LOGIN }}
           token: ${{ secrets.SURGE_TOKEN }}
@@ -78,7 +78,7 @@ jobs:
 
       - name: Deployment Production Summary
         if: steps.init.outputs.IS_MAIN == 'true'
-        run: echo '🚀 Your domain available in https://wibu.surge.sh' >> $GITHUB_STEP_SUMMARY
+        run: echo '🚀 Your domain available in https://prod-wibu.surge.sh' >> $GITHUB_STEP_SUMMARY
 
       - name: Deployment Preview Summary
         if: steps.init.outputs.IS_MAIN == 'false'
