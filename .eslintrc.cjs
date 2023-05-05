@@ -12,22 +12,22 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
-    sourceType: 'module'
+    sourceType: 'module',
   },
-  plugins: ['@typescript-eslint', 'prettier', 'react-refresh', "import"],
+  plugins: ['@typescript-eslint', 'prettier', 'react-refresh', 'import'],
   rules: {
     'react-refresh/only-export-components': 'warn',
     'import/no-unresolved': 0,
-    "import/order": [
-      "error",
+    'import/order': [
+      'error',
       {
-        "newlines-between": "always"
-      }
-    ]
+        'newlines-between': 'always',
+      },
+    ],
   },
-  "settings": {
-    "project": "./tsconfig.json",
-  }
-}
+  settings: {
+    project: './tsconfig.json',
+  },
+};

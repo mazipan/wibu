@@ -1,0 +1,9 @@
+#import "./MediaFragment.graphql"
+
+query GetPopularAnimePageable($page: Int, $perPage: Int) {
+  popular: Page(page: $page, perPage: $perPage) {
+    media(sort: POPULARITY_DESC, type: ANIME, isAdult: false) {
+      ...media
+    }
+  }
+}

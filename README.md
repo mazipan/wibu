@@ -35,6 +35,7 @@ Anime explorer, using data from AniList
 - [Create Vite Project for React](https://vitejs.dev/guide/)
 - [Install Mantine in Vite Project](https://mantine.dev/guides/vite/)
 - [Install urql for React](https://formidable.com/open-source/urql/docs/basics/react-preact/)
+- [Offline Cache in urql](https://formidable.com/open-source/urql/docs/graphcache/offline/)
 
 ---
 
