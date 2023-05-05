@@ -8,14 +8,16 @@ import {
   Badge,
   ActionIcon,
   TypographyStylesProvider,
+  Button,
 } from '@mantine/core';
-import { IconThumbUp } from '@tabler/icons-react';
+import { IconThumbUp, IconBookmark } from '@tabler/icons-react';
 
 import PageLoader from '~/components/PageLoader';
 import ErrorBox from '~/components/ErrorBox';
 import MediaDetailQuery from '~/queries/MediaDetailQuery';
 import ImageLoader from '~/components/ImageLoader';
 import BreadcrumbList from '~/components/BreadcrumbList';
+import BookmarkButton from '~/components/BookmarkButton';
 
 export default function DetailPage() {
   const { id } = useParams();
@@ -54,7 +56,10 @@ export default function DetailPage() {
             }}
           />
           <Stack mt='sm' spacing='xs'>
-            <Title order={1}>{data.media?.title?.english}</Title>
+            <Group position="apart">
+              <Title order={1}>{data.media?.title?.english}</Title>
+              <BookmarkButton anime={data.media} />
+            </Group>
             <Title order={2} color='gray'>
               {data.media?.title?.native} - ({data.media?.title?.romaji})
             </Title>

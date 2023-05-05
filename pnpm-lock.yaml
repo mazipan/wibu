@@ -10,6 +10,9 @@ dependencies:
   '@mantine/hooks':
     specifier: ^6.0.10
     version: 6.0.10(react@18.2.0)
+  '@mantine/notifications':
+    specifier: ^6.0.10
+    version: 6.0.10(@mantine/core@6.0.10)(@mantine/hooks@6.0.10)(react-dom@18.2.0)(react@18.2.0)
   '@tabler/icons-react':
     specifier: ^2.17.0
     version: 2.17.0(react@18.2.0)
@@ -769,6 +772,22 @@ packages:
       react: 18.2.0
     dev: false
 
+  /@mantine/notifications@6.0.10(@mantine/core@6.0.10)(@mantine/hooks@6.0.10)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-TUFEZB1YcOCcsrTljF1lblTONClfj2RP1A4FkGOD2ZxWKe58AzEbXHf9cnptPCjwnZbILWkOYVSMe3yyNs5IXw==}
+    peerDependencies:
+      '@mantine/core': 6.0.10
+      '@mantine/hooks': 6.0.10
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      '@mantine/core': 6.0.10(@emotion/react@11.10.8)(@mantine/hooks@6.0.10)(@types/react@18.2.5)(react-dom@18.2.0)(react@18.2.0)
+      '@mantine/hooks': 6.0.10(react@18.2.0)
+      '@mantine/utils': 6.0.10(react@18.2.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      react-transition-group: 4.4.2(react-dom@18.2.0)(react@18.2.0)
+    dev: false
+
   /@mantine/styles@6.0.10(@emotion/react@11.10.8)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-TVyo4xNBO7PhP2jubu2OI1YK2DEULrVgdsP0+1wfwj/bhSTnTLYmh2aOb1FyTiFvFn1dfq4If428z/ZuGiLtdQ==}
     peerDependencies:
@@ -1492,6 +1511,13 @@ packages:
     dependencies:
       esutils: 2.0.3
     dev: true
+
+  /dom-helpers@5.2.1:
+    resolution: {integrity: sha512-nRCa7CK3VTrM2NmGkIy4cbK7IZlgBE/PYMn55rrXefr5xXDP0LdtfPnblFDoVdcAfslJ7or6iqAUnx0CCGIWQA==}
+    dependencies:
+      '@babel/runtime': 7.21.5
+      csstype: 3.1.2
+    dev: false
 
   /electron-to-chromium@1.4.382:
     resolution: {integrity: sha512-czMavlW52VIPgutbVL9JnZIZuFijzsG1ww/1z2Otu1r1q+9Qe2bTsH3My3sZarlvwyqHM6+mnZfEnt2Vr4dsIg==}
@@ -2863,6 +2889,20 @@ packages:
       use-latest: 1.2.1(@types/react@18.2.5)(react@18.2.0)
     transitivePeerDependencies:
       - '@types/react'
+    dev: false
+
+  /react-transition-group@4.4.2(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-/RNYfRAMlZwDSr6z4zNKV6xu53/e2BuaBbGhbyYIXTrmgu/bGHzmqOs7mJSJBHy9Ud+ApHx3QjrkKSp1pxvlFg==}
+    peerDependencies:
+      react: '>=16.6.0'
+      react-dom: '>=16.6.0'
+    dependencies:
+      '@babel/runtime': 7.21.5
+      dom-helpers: 5.2.1
+      loose-envify: 1.4.0
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /react@18.2.0:
