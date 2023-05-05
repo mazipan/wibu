@@ -71,8 +71,7 @@ jobs:
         if: steps.init.outputs.IS_MAIN == 'false'
         uses: dswistowski/surge-sh-action@v1
         with:
-          # domain: 'preview-wibu-${{ github.event.pull_request.number }}.surge.sh'
-          domain: 'prod-wibu.surge.sh'
+          domain: 'preview-wibu-${{ github.event.pull_request.number }}.surge.sh'
           project: 'dist'
           login: ${{ secrets.SURGE_LOGIN }}
           token: ${{ secrets.SURGE_TOKEN }}
