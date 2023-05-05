@@ -8,9 +8,8 @@ import {
   Badge,
   ActionIcon,
   TypographyStylesProvider,
-  Button,
 } from '@mantine/core';
-import { IconThumbUp, IconBookmark } from '@tabler/icons-react';
+import { IconThumbUp } from '@tabler/icons-react';
 
 import PageLoader from '~/components/PageLoader';
 import ErrorBox from '~/components/ErrorBox';
@@ -56,7 +55,7 @@ export default function DetailPage() {
             }}
           />
           <Stack mt='sm' spacing='xs'>
-            <Group position="apart">
+            <Group position='apart'>
               <Title order={1}>{data.media?.title?.english}</Title>
               <BookmarkButton anime={data.media} />
             </Group>
@@ -84,7 +83,7 @@ export default function DetailPage() {
             <Group position='left' spacing='xs'>
               {data.media?.genres &&
                 data.media?.genres.map((genre: string) => (
-                  <Badge radius='sm' color='grape' variant='dot'>
+                  <Badge radius='sm' color='grape' variant='dot' key={genre}>
                     {genre}
                   </Badge>
                 ))}

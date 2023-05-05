@@ -11,7 +11,7 @@ function App() {
   return (
     <Provider value={client}>
       <MantineProvider withGlobalStyles withNormalizeCSS theme={theme}>
-        <Notifications position="top-right" />
+        <Notifications position='top-right' />
         <RouterProvider router={router} />
       </MantineProvider>
     </Provider>
