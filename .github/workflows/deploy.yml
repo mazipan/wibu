@@ -14,8 +14,11 @@ jobs:
     steps:
       - name: Get PR Number
         run: |
-          echo "::debug::PR Number = #${{ github.event.number }}"
+          echo "::debug::Event Type = #${{ github.event.type }}"
+          echo "::debug::PR Number = #${{ github.event.pull_request.number }}"
           echo "::debug::GH Ref = #${{ github.ref }}"
+          echo "::debug::GH Ref Name = #${{ github.ref_name }}"
+          echo "::debug::GH Ref Type = #${{ github.ref_type }}"
 
       # - name: Checkout
       #   uses: actions/checkout@v3
@@ -51,12 +54,10 @@ jobs:
       # - name: Perform build
       #   run: pnpm run build
 
-# ${{github.event.number}}
-
-# - name: Deploy site
-#   uses: dswistowski/surge-sh-action@v1
-#   with:
-#     domain: 'wibu.surge.sh'
-#     project: '.'
-#     login: ${{ secrets.SURGE_LOGIN }}
-#     token: ${{ secrets.SURGE_TOKEN }}
+      # - name: Deploy site
+      #   uses: dswistowski/surge-sh-action@v1
+      #   with:
+      #     domain: 'preview.wibu.surge.sh'
+      #     project: '.'
+      #     login: ${{ secrets.SURGE_LOGIN }}
+      #     token: ${{ secrets.SURGE_TOKEN }}
