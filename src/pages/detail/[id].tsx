@@ -78,7 +78,7 @@ export default function DetailPage() {
             </Group>
             <Group position='left' spacing='xs'>
               {data.media?.genres &&
-                data.media?.genres.map((genre) => (
+                data.media?.genres.map((genre: string) => (
                   <Badge radius='sm' color='grape' variant='dot'>
                     {genre}
                   </Badge>
