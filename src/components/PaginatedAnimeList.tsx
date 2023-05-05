@@ -8,6 +8,7 @@ import ErrorBox from '~/components/ErrorBox';
 import AnimeItem from '~/components/AnimeItem';
 import GetPopularAnimePageable from '~/queries/PopularPageableQuery.graphql';
 import { PAGINATION } from '~/helpers/constants';
+import { PageInfo } from '~/types/PageInfo';
 
 interface PaginatedAnimeListProps {
   onLoadMore: (page: number) => void;
@@ -16,7 +17,16 @@ interface PaginatedAnimeListProps {
     perPage: number;
   };
   isLastPageInTheScreen: boolean;
+  genres: string[] | null;
 }
+
+interface DataGetPopularResponse {
+  popular: {
+    pageInfo: PageInfo;
+    media: Anime[];
+  };
+}
+
 export default function PaginatedAnimeList({
   onLoadMore,
   variables = {
@@ -24,12 +34,16 @@ export default function PaginatedAnimeList({
     perPage: PAGINATION.SIZE,
   },
   isLastPageInTheScreen,
+  genres = null,
 }: PaginatedAnimeListProps) {
   const elRef = useRef<HTMLDivElement>(null);
 
-  const [{ data, fetching, error }] = useQuery({
+  const [{ data, fetching, error }] = useQuery<DataGetPopularResponse>({
     query: GetPopularAnimePageable,
-    variables: variables,
+    variables: {
+      ...variables,
+      genres: genres && genres.length > 0 ? genres : null,
+    },
   });
 
   // Read: https://usehooks-ts.com/react-hook/use-intersection-observer
