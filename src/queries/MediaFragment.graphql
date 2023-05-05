@@ -1,7 +1,6 @@
 fragment media on Media {
   id
   title {
-    userPreferred
     romaji
     english
     native
@@ -9,18 +8,11 @@ fragment media on Media {
   coverImage {
     extraLarge
     large
-    color
     medium
   }
   bannerImage
   description
-  type
-  format
-  status(version: 2)
   episodes
-  duration
-  chapters
-  volumes
   genres
   averageScore
   popularity

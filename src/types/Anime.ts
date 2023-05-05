@@ -1,13 +1,10 @@
 export interface AnimeTitle {
-  userPreferred: string;
   romaji: string;
   english: string;
   native: string;
 }
 
 export interface AnimeCoverImage {
-  color: string;
-  extraLarge: string;
   large: string;
   medium: string;
 }
