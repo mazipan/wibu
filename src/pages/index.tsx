@@ -12,15 +12,18 @@ export default function HomePage() {
     },
   ]);
 
-  const handleNextPage = (page: number) => {
-    setVariables([...variables, { page, perPage: PAGINATION.SIZE }]);
+  const handleNextPage = (page = 2) => {
+    const isPageAlreadyExist = variables.find((vars) => vars.page === page);
+    if (!isPageAlreadyExist) {
+      setVariables([...variables, { page, perPage: PAGINATION.SIZE }]);
+    }
   };
 
   return (
     <Stack>
       {variables.map((vars, i) => (
         <PaginatedAnimeList
-          key={vars.page}
+          key={`idx${i}-page${vars.page}`}
           variables={vars}
           onLoadMore={handleNextPage}
           isLastPageInTheScreen={i === variables.length - 1}

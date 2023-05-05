@@ -2,6 +2,8 @@ import { AppShell, Header, Group, Title, ActionIcon, Anchor, Button } from '@man
 import { IconMoon, IconBrandGithub, IconBookmarks } from '@tabler/icons-react';
 import { Link, Outlet } from 'react-router-dom';
 
+import AutoScrollToTop from '~/components/AutoScrollToTop';
+
 export default function DefaultLayout() {
   return (
     <AppShell
@@ -47,6 +49,7 @@ export default function DefaultLayout() {
         </Group>
       }
     >
+      <AutoScrollToTop />
       <Outlet />
     </AppShell>
   );
