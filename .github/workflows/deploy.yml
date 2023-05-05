@@ -12,6 +12,14 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Debug vars
+        id: init
+        run: |
+          echo "IS_MAIN=${{github.ref}}==refs/heads/master" >> $GITHUB_OUTPUT
+          echo "::debug::Ref => ${{github.ref}}"
+          echo "::debug::PR => ${{github.event.pull_request.number}}"
+          echo "::debug::Is Main => ${{github.ref}}==refs/heads/master"
+
       - name: Checkout
         uses: actions/checkout@v3
 
@@ -47,7 +55,7 @@ jobs:
         run: pnpm run build
 
       - name: Deploy production
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/master'
         uses: dswistowski/surge-sh-action@v1
         with:
           domain: 'wibu.surge.sh'
@@ -56,7 +64,7 @@ jobs:
           token: ${{ secrets.SURGE_TOKEN }}
 
       - name: Deploy preview domain
-        if: (github.ref != 'refs/heads/main' && github.event.pull_request.number != '')
+        if: (github.ref != 'refs/heads/master' && github.event.pull_request.number != '')
         uses: dswistowski/surge-sh-action@v1
         with:
           domain: 'preview-wibu-${{ github.event.pull_request.number }}.surge.sh'
@@ -65,15 +73,15 @@ jobs:
           token: ${{ secrets.SURGE_TOKEN }}
 
       - name: Deployment Production Summary
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/master'
         run: echo '🚀 Your domain available in https://wibu.surge.sh' >> $GITHUB_STEP_SUMMARY
 
       - name: Deployment Preview Summary
-        if: (github.ref != 'refs/heads/main' && github.event.pull_request.number != '')
+        if: (github.ref != 'refs/heads/master' && github.event.pull_request.number != '')
         run: echo '🚀 Your domain available in https://preview-wibu-${{ github.event.pull_request.number }}.surge.sh' >> $GITHUB_STEP_SUMMARY
 
       - name: Deployment Preview Comment
-        if: (github.ref != 'refs/heads/main' && github.event.pull_request.number != '')
+        if: (github.ref != 'refs/heads/master' && github.event.pull_request.number != '')
         uses: thollander/actions-comment-pull-request@v2
         with:
           GITHUB_TOKEN: ${{ secrets.PAT }}
