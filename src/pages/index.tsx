@@ -15,8 +15,6 @@ export default function HomePage() {
   if (fetching) return <PageLoader />;
   if (error) return <ErrorBox message={error.message} />;
 
-  console.debug('List::: ', data);
-
   return (
     <Stack>
       {data && data.popular && data.popular.media && data.popular.media.length > 0 ? (

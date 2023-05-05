@@ -16,6 +16,7 @@ import ErrorBox from '~/components/ErrorBox';
 import MediaDetailQuery from '~/queries/MediaDetailQuery';
 import ImageLoader from '~/components/ImageLoader';
 import BreadcrumbList from '~/components/BreadcrumbList';
+import BookmarkButton from '~/components/BookmarkButton';
 
 export default function DetailPage() {
   const { id } = useParams();
@@ -26,8 +27,6 @@ export default function DetailPage() {
 
   if (fetching) return <PageLoader />;
   if (error) return <ErrorBox message={error.message} />;
-
-  console.debug('Detail:::', data);
 
   return (
     <Stack>
@@ -54,7 +53,10 @@ export default function DetailPage() {
             }}
           />
           <Stack mt='sm' spacing='xs'>
-            <Title order={1}>{data.media?.title?.english}</Title>
+            <Group position='apart'>
+              <Title order={1}>{data.media?.title?.english}</Title>
+              <BookmarkButton anime={data.media} />
+            </Group>
             <Title order={2} color='gray'>
               {data.media?.title?.native} - ({data.media?.title?.romaji})
             </Title>
@@ -79,7 +81,7 @@ export default function DetailPage() {
             <Group position='left' spacing='xs'>
               {data.media?.genres &&
                 data.media?.genres.map((genre: string) => (
-                  <Badge radius='sm' color='grape' variant='dot'>
+                  <Badge radius='sm' color='grape' variant='dot' key={genre}>
                     {genre}
                   </Badge>
                 ))}

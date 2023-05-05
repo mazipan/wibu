@@ -1,5 +1,5 @@
-import { AppShell, Header, Group, Title, ActionIcon, Anchor } from '@mantine/core';
-import { IconMoon, IconBrandGithub } from '@tabler/icons-react';
+import { AppShell, Header, Group, Title, ActionIcon, Anchor, Button } from '@mantine/core';
+import { IconMoon, IconBrandGithub, IconBookmarks } from '@tabler/icons-react';
 import { Link, Outlet } from 'react-router-dom';
 
 export default function DefaultLayout() {
@@ -20,17 +20,21 @@ export default function DefaultLayout() {
             >
               <Title order={1}>⛩ wibu</Title>
             </Anchor>
-            <Group position='right' align='center' spacing='xs'>
+            <Group position='right' align='center' spacing='xs' mr='lg'>
+              <Button leftIcon={<IconBookmarks />} component={Link} to='/bookmarks'>
+                My Bookmarks
+              </Button>
               <ActionIcon
                 variant='outline'
                 component='a'
                 href='https://github.com/mazipan/wibu'
                 target='_blank'
                 rel='noopener noreferrer'
+                size='lg'
               >
                 <IconBrandGithub size='1.125rem' />
               </ActionIcon>
-              <ActionIcon variant='outline'>
+              <ActionIcon variant='outline' size='lg'>
                 <IconMoon size='1.125rem' />
               </ActionIcon>
             </Group>

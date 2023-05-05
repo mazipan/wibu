@@ -21,13 +21,14 @@ Anime explorer, using data from AniList
 
 `pnpm run dev`
 
-## Tech Stacks
+## Notable Libraries
 
 - [React](https://react.dev/)
 - [Vite](https://vitejs.dev/)
 - [Mantine](https://mantine.dev/)
 - [urql](https://formidable.com/open-source/urql/)
 - [Tabler Icon](https://tabler-icons.io/)
+- [LocalForage](https://github.com/localForage/localForage)
 
 ## Read more
 
