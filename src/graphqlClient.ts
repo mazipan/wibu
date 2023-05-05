@@ -13,6 +13,13 @@ const storage = makeDefaultStorage({
 const cache = offlineExchange({
   schema,
   storage,
+  // Read: https://formidable.com/open-source/urql/docs/graphcache/normalized-caching/#custom-keys-and-non-keyable-entities
+  keys: {
+    PageInfo: (data) => `${data.currentPage}`,
+    MediaTitle: () => null,
+    MediaCoverImage: () => null,
+    Page: () => null,
+  },
 });
 
 const client = new Client({
