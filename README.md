@@ -6,6 +6,12 @@ Anime explorer, using data from AniList
 
 - [prod-wibu.surge.sh](https://prod-wibu.surge.sh/)
 
+## Screenshots
+
+| Desktop                               | Mobile                              |
+| ------------------------------------- | ----------------------------------- |
+| ![Desktop](./screenshots/desktop.png) | ![iPhone](./screenshots/iPhone.png) |
+
 ## Development
 
 ### Prerequisites
