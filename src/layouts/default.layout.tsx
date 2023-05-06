@@ -1,10 +1,23 @@
-import { AppShell, Header, Group, Title, ActionIcon, Anchor, Button } from '@mantine/core';
-import { IconMoon, IconBrandGithub, IconBookmarks } from '@tabler/icons-react';
+import {
+  AppShell,
+  Header,
+  Group,
+  Title,
+  ActionIcon,
+  Anchor,
+  Button,
+  useMantineColorScheme,
+} from '@mantine/core';
+import { IconBrandGithub, IconBookmarks } from '@tabler/icons-react';
 import { Link, Outlet } from 'react-router-dom';
 
 import AutoScrollToTop from '~/components/AutoScrollToTop';
+import ThemeSwitcher from '~/components/ThemeSwitcher';
 
 export default function DefaultLayout() {
+  const { colorScheme } = useMantineColorScheme();
+  const dark = colorScheme === 'dark';
+
   return (
     <AppShell
       header={
@@ -13,7 +26,7 @@ export default function DefaultLayout() {
             <Anchor
               component={Link}
               to='/'
-              color='dark'
+              color={dark ? 'gray' : 'dark'}
               sx={{
                 '&:hover': {
                   textDecoration: 'none',
@@ -36,9 +49,7 @@ export default function DefaultLayout() {
               >
                 <IconBrandGithub size='1.125rem' />
               </ActionIcon>
-              <ActionIcon variant='outline' size='lg'>
-                <IconMoon size='1.125rem' />
-              </ActionIcon>
+              <ThemeSwitcher />
             </Group>
           </Group>
         </Header>

@@ -46,7 +46,7 @@ export default function BookmarkPage() {
                 width: '',
               })}
             >
-              <AnimeItem anime={anime} />
+              <AnimeItem anime={anime} withBookmark />
             </Stack>
           ))}
         </div>

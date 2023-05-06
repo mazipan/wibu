@@ -13,7 +13,7 @@ Anime explorer, using data from AniList
 - Node.js (I recommend to use Node.js LTS `18.16.0`)
 - PNPM v8 (You can use Yarn or NPM as well)
 
-### Dependencies Installation
+### Install Dependencies
 
 `pnpm install`
 
