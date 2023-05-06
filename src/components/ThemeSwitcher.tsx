@@ -7,8 +7,8 @@ export default function ThemeSwitcher() {
 
   return (
     <ActionIcon
-      variant='outline'
-      color={dark ? 'yellow' : 'blue'}
+      variant='filled'
+      color={dark ? 'yellow' : 'dark'}
       onClick={() => toggleColorScheme()}
       title='Toggle color scheme'
       size='lg'
