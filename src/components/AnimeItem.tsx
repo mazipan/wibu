@@ -1,13 +1,20 @@
 import { Card, Image, Text, Badge, Group, ActionIcon, Button, Stack } from '@mantine/core';
-import { IconThumbUp } from '@tabler/icons-react';
+import { IconArrowRight, IconThumbUp } from '@tabler/icons-react';
 import { Link } from 'react-router-dom';
 import { useIntersectionObserver } from 'usehooks-ts';
 import { useEffect, useRef, useState } from 'react';
 
+import BookmarkButton from './BookmarkButton';
+
 import type { Anime } from '~/types/Anime';
 import ImageLoader from '~/components/ImageLoader';
 
-export default function AnimeItem({ anime }: { anime: Anime }) {
+interface AnimeItemProps {
+  anime: Anime;
+  withBookmark?: boolean;
+}
+
+export default function AnimeItem({ anime, withBookmark }: AnimeItemProps) {
   const [imageSrc, setImageSrc] = useState('');
   const imageRef = useRef<HTMLImageElement>(null);
 
@@ -44,7 +51,7 @@ export default function AnimeItem({ anime }: { anime: Anime }) {
         />
       </Card.Section>
 
-      <Stack mt='md'>
+      <Stack mt='md' spacing='xs'>
         <Group position='apart'>
           <Text weight={500}>{anime.title.english}</Text>
         </Group>
@@ -67,7 +74,13 @@ export default function AnimeItem({ anime }: { anime: Anime }) {
           </Badge>
         </Group>
 
-        <Button component={Link} to={`/detail/${anime.id}`}>
+        {withBookmark ? <BookmarkButton anime={anime} fullWidth={true} outline={true} /> : null}
+
+        <Button
+          component={Link}
+          to={`/detail/${anime.id}`}
+          rightIcon={<IconArrowRight size='1.1rem' />}
+        >
           See Detail
         </Button>
       </Stack>
